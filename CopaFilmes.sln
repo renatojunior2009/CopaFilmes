@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Presentation", "1 - Presentation", "{6389DF32-E61D-465F-82B8-E97574677BC7}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Presentation", "0 - Presentation", "{6389DF32-E61D-465F-82B8-E97574677BC7}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Domain", "2 - Domain", "{8ADF972B-42EE-4AD2-9866-9046ADF7A846}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1- Domain", "1- Domain", "{8ADF972B-42EE-4AD2-9866-9046ADF7A846}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CopaFilmes.Domain", "src\CopaFilmes.Domain\CopaFilmes.Domain.csproj", "{049A4377-39E8-4588-8722-F459B9D0829A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CopaFilmes.Presentation", "src\CopaFilmes.Presentation\CopaFilmes.Presentation.csproj", "{2A7C0728-400F-4FCD-AA45-AB5C1355B211}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Services", "2 - Services", "{2EB120A9-46F5-4DEE-8F92-3A68856820F3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

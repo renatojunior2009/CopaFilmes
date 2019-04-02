@@ -10,8 +10,7 @@ namespace CopaFilmesApi.Controllers
     [ApiController]
     public class FilmesController : ControllerBase
     {
-
-        readonly IFilmeService _filmeService;
+        private readonly IFilmeService _filmeService;
         
         // GET api/values              
         public FilmesController(IFilmeService filmeService) => _filmeService = filmeService;

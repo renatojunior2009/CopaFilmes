@@ -7,7 +7,7 @@ namespace CopaFilmes.Domain.Services
     public class ResultadoService : IResultadoService
     {
         #region Fields
-        readonly IFilmeService _filmeService;
+        private readonly IFilmeService _filmeService;
         #endregion
 
         #region Constructor
