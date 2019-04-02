@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CopaFilmes.Domain\CopaFilmes.Domain.csproj" />
+    <ProjectReference Include="..\CopaFilmes.Services\CopaFilmes.Services.csproj" />
   </ItemGroup>
 
 </Project>

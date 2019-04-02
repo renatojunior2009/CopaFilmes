@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using CopaFilmes.Domain.Entity;
 using CopaFilmes.Domain.Interfaces.Services;
+using CopaFilmes.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CopaFilmesApi.Controllers
@@ -10,10 +11,23 @@ namespace CopaFilmesApi.Controllers
     [ApiController]
     public class FilmesController : ControllerBase
     {
+        #region Fileds
         private readonly IFilmeService _filmeService;
-        
-        // GET api/values              
-        public FilmesController(IFilmeService filmeService) => _filmeService = filmeService;
-              
+        private readonly IFilmeApi _filmeApi;
+        #endregion
+
+        #region Methods Publics
+        // GET api/values
+        [HttpGet]
+        public async Task<List<Filme>> ListarFilmes() => await _filmeApi.GetFilmes();
+        #endregion
+
+        #region Constructor
+        public FilmesController(IFilmeService filmeService, IFilmeApi filmeApi)
+        {
+            _filmeService = filmeService;
+            _filmeApi = filmeApi;
+        }        
+        #endregion
     }
 }

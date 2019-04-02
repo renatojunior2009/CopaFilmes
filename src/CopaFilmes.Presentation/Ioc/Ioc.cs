@@ -1,5 +1,7 @@
 ﻿using CopaFilmes.Domain.Interfaces.Services;
 using CopaFilmes.Domain.Services;
+using CopaFilmes.Services.Interfaces;
+using CopaFilmes.Services.Services;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CopaFilmes.Presentation.Ioc
@@ -10,6 +12,7 @@ namespace CopaFilmes.Presentation.Ioc
         {
             services.AddScoped<IFilmeService, FilmeService>();
             services.AddScoped<IResultadoService, ResultadoService>();
+            services.AddScoped<IFilmeApi, FilmeApi>();
         }
     }
 }
