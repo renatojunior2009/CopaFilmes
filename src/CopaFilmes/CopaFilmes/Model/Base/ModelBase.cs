@@ -12,12 +12,12 @@ namespace CopaFilmes.Model.Base
     {
 
         #region Fields
-        private long _id;
+        private string _id;
         #endregion
 
         #region Properties
         public IDisplayCommand InternalCommand { get; set; }
-        public long Id
+        public string Id
         {
             get { return _id; }
             set
