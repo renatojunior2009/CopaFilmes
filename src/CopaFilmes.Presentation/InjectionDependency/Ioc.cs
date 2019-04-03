@@ -10,9 +10,9 @@ namespace CopaFilmes.Presentation.InjectionDependency
     {
         public static void RegisterServicesApplication(IServiceCollection services)
         {
-            services.AddScoped<IFilmeService, FilmeService>();
-            services.AddScoped<IResultadoService, ResultadoService>();
-            services.AddScoped<IFilmeApi, FilmeApi>();
+            services.AddScoped<IMovieService, MovieService>();
+            services.AddScoped<IResultCompetitionService, ResultCompetitionService>();
+            services.AddScoped<IMovieApi, MovieApi>();
         }
     }
 }

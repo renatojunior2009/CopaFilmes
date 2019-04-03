@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 namespace CopaFilmes.Domain.Interfaces.Services
 {
-    public interface IResultadoService
+    public interface IResultCompetitionService
     {
-        List<Filme> IniciarCompeticao(List<Filme> filmes);
+        List<Movie> StarCompetition(List<Movie> Movies);
     }
 }

@@ -2,7 +2,7 @@
 
 namespace CopaFilmes.Model
 {
-    public class FilmeModel : ModelBase
+    public class MovieModel : ModelBase
     {
         #region Fields
         private string _titulo;

@@ -2,7 +2,7 @@
 
 namespace CopaFilmes.Domain.Entities
 {
-    public class Filme : EntityBase
+    public class Movie : EntityBase
     {       
         public string Titulo { get; set; }
         public int Ano { get; set; }

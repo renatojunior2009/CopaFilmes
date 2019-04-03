@@ -6,19 +6,19 @@ using Refit;
 
 namespace CopaFilmes.Services.Services
 {
-    public class FilmeApi : IFilmeApi
+    public class MovieApi : IMovieApi
     {
         #region Fields
         private readonly string BaseUrlApi = "https://copadosfilmes.azurewebsites.net/api";
         #endregion
 
         #region Methods Publics 
-        public async Task<List<Filme>> GetFilmes()
+        public async Task<List<Movie>> GetMovies()
         {
-            var api = RestService.For<IFilmeApi>(BaseUrlApi);
-            var filmes = await api.GetFilmes();
+            var api = RestService.For<IMovieApi>(BaseUrlApi);
+            var movies = await api.GetMovies();
 
-            return filmes;
+            return movies;
         } 
         #endregion
     }

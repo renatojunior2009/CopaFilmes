@@ -1,8 +1,8 @@
-﻿using CopaFilmes.InjectionDependency;
-using CopaFilmes.Pages;
+﻿using CopaFilmes.Pages;
 using CopaFilmes.Pages.Interfaces;
 using CopaFilmes.ViewModels;
 using CopaFilmes.ViewModels.Interfaces;
+using CopaFilmes.InjectionDependency;
 
 namespace CopaFilmes
 {

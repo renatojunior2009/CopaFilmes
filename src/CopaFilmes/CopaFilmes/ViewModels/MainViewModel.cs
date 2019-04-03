@@ -5,7 +5,7 @@ using CopaFilmes.ViewModels.Interfaces;
 
 namespace CopaFilmes.ViewModels
 {
-    public class MainViewModel : ViewModelBaseList<IMainPage, FilmeModel>, IMainViewModel
+    public class MainViewModel : ViewModelBaseList<IMainPage, MovieModel>, IMainViewModel
     {
 
     }

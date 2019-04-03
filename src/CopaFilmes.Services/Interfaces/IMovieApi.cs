@@ -5,9 +5,9 @@ using Refit;
 
 namespace CopaFilmes.Services.Interfaces
 {
-    public interface IFilmeApi
+    public interface IMovieApi
     {
         [Get("/filmes")]
-        Task<List<Filme>> GetFilmes();
+        Task<List<Movie>> GetMovies();
     }
 }
