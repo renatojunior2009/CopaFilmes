@@ -4,9 +4,9 @@ using CopaFilmes.Services.Interfaces;
 using CopaFilmes.Services.Services;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CopaFilmes.Presentation.Ioc
+namespace CopaFilmes.Presentation.InjectionDependency
 {    
-    public class Ioc
+    public class IoC
     {
         public static void RegisterServicesApplication(IServiceCollection services)
         {

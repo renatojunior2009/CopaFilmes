@@ -1,4 +1,4 @@
-﻿using System;
+﻿using CopaFilmes.Pages;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -7,6 +7,11 @@ namespace CopaFilmes
 {
     public partial class App : Application
     {
+        #region Properties 
+        public static App Current;
+        public Page CurrentPage { get; set; } 
+        #endregion
+
         public App()
         {
             InitializeComponent();
