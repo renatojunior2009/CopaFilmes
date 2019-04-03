@@ -1,4 +1,4 @@
-﻿namespace CopaFilmes.Domain.Entity
+﻿namespace CopaFilmes.Domain.Entities
 {
     public class Filme
     {

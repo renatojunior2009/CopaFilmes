@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using CopaFilmes.Domain.Entity;
+using CopaFilmes.Domain.Entities;
 using CopaFilmes.Domain.Interfaces.Services;
 
 namespace CopaFilmes.Domain.Services

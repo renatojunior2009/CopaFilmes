@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using CopaFilmes.Domain.Entity;
+using CopaFilmes.Domain.Entities;
 using Refit;
 
 namespace CopaFilmes.Services.Interfaces

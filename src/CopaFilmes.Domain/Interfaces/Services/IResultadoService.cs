@@ -1,4 +1,4 @@
-﻿using CopaFilmes.Domain.Entity;
+﻿using CopaFilmes.Domain.Entities;
 using System.Collections.Generic;
 
 namespace CopaFilmes.Domain.Interfaces.Services
