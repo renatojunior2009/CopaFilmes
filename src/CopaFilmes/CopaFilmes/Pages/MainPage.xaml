@@ -3,12 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:CopaMovies"
              x:Class="CopaFilmes.Pages.MainPage">
-
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-    </StackLayout>
-
+    <ListView 
+        ItemsSource="Movies"
+        HasUnevenRows="True">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <StackLayout Padding="5" VerticalOptions="Center">
+                    <Label Text="{Binding Titulo, Mode=TwoWay}"/>
+                    <Label Text="{Binding Ano, Mode=TwoWay}" FontSize="Small"/>
+                </StackLayout>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
 </ContentPage>

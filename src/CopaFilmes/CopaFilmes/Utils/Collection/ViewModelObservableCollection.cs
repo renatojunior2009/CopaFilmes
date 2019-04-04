@@ -6,7 +6,7 @@ using System.Collections.ObjectModel;
 namespace CopaFilmes.Utils.Collection
 {
     
-    public class ViewModelObservableCollection<T> : ObservableCollection<T> where T : ModelBase
+    public class ViewModelObservableCollection<TModel> : ObservableCollection<TModel> where TModel : ModelBase
     {
         #region Fields 
         private IDisplayCommand _interfaceCommand;
@@ -19,7 +19,7 @@ namespace CopaFilmes.Utils.Collection
 
         }
 
-        public ViewModelObservableCollection(IEnumerable<T> collection, IDisplayCommand interfaceCommand)
+        public ViewModelObservableCollection(IEnumerable<TModel> collection, IDisplayCommand interfaceCommand)
             : base(collection)
         {
             _interfaceCommand = interfaceCommand;
@@ -28,7 +28,7 @@ namespace CopaFilmes.Utils.Collection
         #endregion
 
         #region Methods Privates 
-        private void SetInterfaceCollection(IList<T> collection)
+        private void SetInterfaceCollection(IList<TModel> collection)
         {
             foreach (var item in collection)
             {

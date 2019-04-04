@@ -1,4 +1,6 @@
-﻿using CopaFilmes.Pages.Interfaces;
+﻿using CopaFilmes.InjectionDependency;
+using CopaFilmes.Pages.Interfaces;
+using CopaFilmes.ViewModels.Interfaces;
 using Xamarin.Forms;
 
 namespace CopaFilmes.Pages
@@ -7,7 +9,8 @@ namespace CopaFilmes.Pages
     {
         public MainPage()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            BindingContext = IoCApp.Container.GetInstance<IMainViewModel>();
         }
     }
 }

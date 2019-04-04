@@ -20,7 +20,7 @@ namespace CopaFilmesApi.Controllers
 
         #region Methods Publics 
         // GET api/resultado              
-        [HttpGet]
+        [HttpPost]
         public List<Movie> ResultCompetition([FromBody] List<Movie> movies) => _resultCompetitionService.StarCompetition(movies); 
         #endregion
     }
