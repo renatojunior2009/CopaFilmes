@@ -17,7 +17,6 @@ namespace CopaFilmes.ViewModels.Base
 
         #region Fields
         private bool _isBusy;
-        private string _textoApresentacaoCarregamento;
         #endregion
 
         #region Properties
@@ -32,17 +31,6 @@ namespace CopaFilmes.ViewModels.Base
                 RaisedPropertyChanged(() => IsBusy);
             }
         }
-
-        public string TextoApresentacaoCarregamento
-        {
-            get { return _textoApresentacaoCarregamento; }
-            set
-            {
-                _textoApresentacaoCarregamento = value;
-                RaisedPropertyChanged(() => TextoApresentacaoCarregamento);
-            }
-        }
-
         #endregion
 
         #region Constructor

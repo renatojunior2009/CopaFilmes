@@ -13,11 +13,11 @@ namespace CopaFilmes
         public static void Initialize()
         {
             #region Registers Pages             
-            IoCApp.Container.Register(typeof(IMainPage), typeof(MainPage));
+            IoCApp.Container.Register(typeof(IMoviePage), typeof(MoviePage));
             #endregion
 
             #region Registers View Models 
-            IoCApp.Container.Register(typeof(IMainViewModel), typeof(MainViewModel));
+            IoCApp.Container.Register(typeof(IMovieViewModel), typeof(MovieViewModel));
             #endregion
 
             #region Services Api

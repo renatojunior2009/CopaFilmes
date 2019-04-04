@@ -1,7 +1,7 @@
 ﻿
 namespace CopaFilmes.ViewModels.Interfaces
 {
-    public interface IMainViewModel
+    public interface IMovieViewModel
     {
 
     }

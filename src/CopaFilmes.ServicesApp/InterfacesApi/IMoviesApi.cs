@@ -7,7 +7,7 @@ namespace CopaFilmes.ServicesApp.InterfacesApi
 {
     public interface IMoviesApi
     {
-        [Get("/movies")]
+        [Get("/filmes")]
         Task<List<Movie>> GetMovies();
     }
 }

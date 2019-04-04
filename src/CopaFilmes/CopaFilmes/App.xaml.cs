@@ -1,4 +1,5 @@
-﻿using CopaFilmes.Pages;
+﻿using CopaFilmes.AutoMapper.Config;
+using CopaFilmes.Pages;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -14,9 +15,12 @@ namespace CopaFilmes
 
         public App()
         {
+            Current = this;
             InitializeComponent();
+            AutoMapperConfig.RegisterMappings();
+            ModuleInitializer.Initialize();
 
-            MainPage = new MainPage();
+            MainPage = new MoviePage();
         }
 
         protected override void OnStart()

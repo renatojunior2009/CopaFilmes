@@ -39,7 +39,7 @@ namespace CopaFilmes.Model
                 _nota = value;
                 RaisedPropertyChanged(() => Nota);
             }
-        } 
+        }
         #endregion
     }
 }

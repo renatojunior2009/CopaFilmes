@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CopaFilmes.InjectionDependency;
 using CopaFilmes.Model;
 using CopaFilmes.Pages.Interfaces;
 using CopaFilmes.ServicesApp.InterfacesApi;
@@ -10,17 +11,18 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace CopaFilmes.ViewModels
-{
-    public class MainViewModel : ViewModelBaseList<IMainPage, MovieModel>, IMainViewModel
+{    
+    public class MovieViewModel : ViewModelBaseList<IMoviePage, MovieModel>, IMovieViewModel
     {
         #region Fields 
         private readonly IMoviesApi _moviesApi;
         #endregion
 
         #region Constructor
-        public MainViewModel(IMoviesApi moviesApi)
+        public MovieViewModel(IMoviesApi moviesApi)
         {
             _moviesApi = moviesApi;
+            GetMoviesApi();
         }
         #endregion
 
@@ -30,7 +32,7 @@ namespace CopaFilmes.ViewModels
             try
             {
                 var movies = await _moviesApi.GetMovies();
-                var moviesModel = Mapper.Map<List<MovieModel>>(movies);
+                var moviesModel = Mapper.Map<IEnumerable<MovieModel>>(movies);
                 Items = new ViewModelObservableCollection<MovieModel>(moviesModel, null);
                 RaisedPropertyChanged(() => Items);
             }
@@ -42,11 +44,10 @@ namespace CopaFilmes.ViewModels
         #endregion
 
         #region Methods Publics 
-
-        public async override void AfterBinding()
+        public  override void AfterBinding()
         {
-            await GetMoviesApi();
-        } 
+         
+        }        
         #endregion
     }
 }

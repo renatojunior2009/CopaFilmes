@@ -3,17 +3,13 @@
 namespace CopaFilmes.InjectionDependency
 {
     public class IoCApp
-    {
-        #region Fields
-        private static Container _container; 
-        #endregion
-
+    {        
         #region Properties
-        public static Container Container => _container; 
+        public static Container Container { get; private set; }
         #endregion
 
         #region Constructor
-        static IoCApp() => _container = new Container(); 
+        static IoCApp() => Container = new Container(); 
         #endregion
     }
 }

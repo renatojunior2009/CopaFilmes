@@ -1,6 +1,6 @@
 ﻿namespace CopaFilmes.Pages.Interfaces
 {
-    public interface IMainPage : IPage
+    public interface IMoviePage : IPage
     {
 
     }

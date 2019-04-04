@@ -10,7 +10,8 @@ namespace CopaFilmes.ServicesApp.ServicesApi
     {
 
         #region Fields
-        private readonly string BaseUrlApi = "http://192.168.0.102:60552/api";
+        //private readonly string BaseUrlApi = "http://192.168.254.86:60552/api";
+        private readonly string BaseUrlApi = "https://copadosfilmes.azurewebsites.net/api";
         #endregion
 
         #region Methods Publics 
