@@ -1,7 +1,21 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Interfaces\Services\Extern\**" />
+    <Compile Remove="Services\Extern\**" />
+    <EmbeddedResource Remove="Interfaces\Services\Extern\**" />
+    <EmbeddedResource Remove="Services\Extern\**" />
+    <None Remove="Interfaces\Services\Extern\**" />
+    <None Remove="Services\Extern\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Interfaces\Services\Intern\" />
+    <Folder Include="Services\Intern\" />
+  </ItemGroup>
 
 </Project>

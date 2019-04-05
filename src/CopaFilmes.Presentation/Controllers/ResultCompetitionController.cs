@@ -1,5 +1,5 @@
 ﻿using CopaFilmes.Domain.Entities;
-using CopaFilmes.Domain.Interfaces.Services;
+using CopaFilmes.Domain.Interfaces.Services.Intern;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;

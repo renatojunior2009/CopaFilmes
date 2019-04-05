@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace CopaFilmes.Domain.Entities.Base
+﻿
+namespace CopaFilmes.Domain.Base
 {
     public class EntityBase
     {

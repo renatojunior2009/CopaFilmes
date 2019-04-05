@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using CopaFilmes.Domain.Entities;
-using CopaFilmes.Domain.Interfaces.Services;
+using CopaFilmes.Domain.Interfaces.Services.Intern;
 
-namespace CopaFilmes.Domain.Services
+namespace CopaFilmes.Domain.Services.Intern
 {
     public class ResultCompetitionService : IResultCompetitionService
     {

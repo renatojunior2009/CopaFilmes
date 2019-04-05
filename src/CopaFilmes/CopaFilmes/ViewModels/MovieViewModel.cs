@@ -1,8 +1,7 @@
 ﻿using AutoMapper;
-using CopaFilmes.InjectionDependency;
 using CopaFilmes.Model;
 using CopaFilmes.Pages.Interfaces;
-using CopaFilmes.ServicesApp.InterfacesApi;
+using CopaFilmes.Services.Interfaces.Intern;
 using CopaFilmes.Utils.Collection;
 using CopaFilmes.ViewModels.Base;
 using CopaFilmes.ViewModels.Interfaces;

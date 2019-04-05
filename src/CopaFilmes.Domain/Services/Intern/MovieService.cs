@@ -1,10 +1,10 @@
 ﻿using CopaFilmes.Domain.Entities;
-using CopaFilmes.Domain.Interfaces.Services;
+using CopaFilmes.Domain.Interfaces.Services.Intern;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
-namespace CopaFilmes.Domain.Services
+
+namespace CopaFilmes.Domain.Services.Intern
 {
     public class MovieService : IMovieService
     {

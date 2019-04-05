@@ -1,7 +1,7 @@
-﻿using CopaFilmes.Domain.Interfaces.Services;
-using CopaFilmes.Domain.Services;
-using CopaFilmes.Services.Interfaces;
-using CopaFilmes.Services.Services;
+﻿using CopaFilmes.Domain.Interfaces.Services.Intern;
+using CopaFilmes.Domain.Services.Intern;
+using CopaFilmes.Services.Extern;
+using CopaFilmes.Services.Interfaces.Extern;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CopaFilmes.Presentation.InjectionDependency

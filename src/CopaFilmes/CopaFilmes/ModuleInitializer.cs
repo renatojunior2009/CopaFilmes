@@ -3,8 +3,8 @@ using CopaFilmes.Pages.Interfaces;
 using CopaFilmes.ViewModels;
 using CopaFilmes.ViewModels.Interfaces;
 using CopaFilmes.InjectionDependency;
-using CopaFilmes.ServicesApp.InterfacesApi;
-using CopaFilmes.ServicesApp.ServicesApi;
+using CopaFilmes.Services.Interfaces.Intern;
+using CopaFilmes.Services.Intern;
 
 namespace CopaFilmes
 {

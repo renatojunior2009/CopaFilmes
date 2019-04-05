@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using CopaFilmes.Domain.Entities;
-using CopaFilmes.Services.Interfaces;
+using CopaFilmes.Services.Interfaces.Extern;
 using Refit;
 
-namespace CopaFilmes.Services.Services
+namespace CopaFilmes.Services.Extern
 {
     public class MovieApi : IMovieApi
     {

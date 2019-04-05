@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using CopaFilmes.Domain.Entities;
-using CopaFilmes.Domain.Interfaces.Services;
-using CopaFilmes.Services.Interfaces;
+using CopaFilmes.Domain.Interfaces.Services.Intern;
+using CopaFilmes.Services.Interfaces.Extern;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

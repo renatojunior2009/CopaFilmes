@@ -1,6 +1,5 @@
-﻿
-using AutoMapper;
-using CopaFilmes.DomainApp.Entities;
+﻿using AutoMapper;
+using CopaFilmes.Domain.Entities;
 using CopaFilmes.Model;
 
 namespace CopaFilmes.AutoMapper
