@@ -77,26 +77,15 @@ namespace CopaFilmes.ViewModels
                 _movieSelected = value;
 
                 if (_movieSelected != null)
-                {                    
+                {
                     RaisedPropertyChanged(() => MovieSelected);
-
-                    if (MoviesSelected.Count < 8)
-                    {
-                        var movie = MoviesSelected.Where(m => m.Id == _movieSelected.Id).FirstOrDefault();
-                        if (movie != null)
-                            DisplayAlert("Atenção", "Esse filme já foi selecionado.", "Ok");
-                        else
-                            MoviesSelected.Add(Mapper.Map<Movie>(value));                        
-                    }
-                    if (MoviesSelected.Count >= 8)
-                        DisplayAlert("Atenção", "Você já selecionou 8 filmes.", "Ok");
-
+                    IsValid(value);
                     UpdateNumberMoviesSelected();
                     EnableDisableButtonGenerateResult();
                 }
             }
         }
-
+      
         public bool IsGenerateResult
         {
             get { return _isGenerateResult; }
@@ -130,7 +119,6 @@ namespace CopaFilmes.ViewModels
                 var moviesModel = Mapper.Map<IEnumerable<MovieModel>>(movies);
                 Items = new ViewModelObservableCollection<MovieModel>(moviesModel, null);
                 RaisedPropertyChanged(() => Items);
-
                 UpdateDisplayMoviesSelected();
             }
             catch (Exception ex)
@@ -141,6 +129,21 @@ namespace CopaFilmes.ViewModels
             {
                 IsBusy = false;
             }
+        }
+
+        private void IsValid(MovieModel novieModel)
+        {
+            if (MoviesSelected.Count < 8)
+            {
+                var movie = MoviesSelected.Where(m => m.Id == _movieSelected.Id).FirstOrDefault();
+                if (movie != null)
+                   DisplayAlert("Atenção", "Esse filme já foi selecionado.", "Ok");                                                      
+                else
+                    MoviesSelected.Add(Mapper.Map<Movie>(novieModel));
+            }
+
+            if (MoviesSelected.Count >= 8)
+                DisplayAlert("Atenção", "Você já selecionou 8 filmes.", "Ok");                            
         }
 
         private void UpdateDisplayMoviesSelected()

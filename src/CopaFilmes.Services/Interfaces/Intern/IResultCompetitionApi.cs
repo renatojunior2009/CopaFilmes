@@ -8,6 +8,6 @@ namespace CopaFilmes.Services.Interfaces.Intern
     public interface IResultCompetitionApi
     {
         [Post("/resultcompetition")]
-        Task<List<Movie>> GetMovies([Body] List<Movie> movies);
+        Task<List<Movie>> GetResult([Body] List<Movie> movies);
     }
 }
