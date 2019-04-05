@@ -1,12 +1,10 @@
 ﻿using CopaFilmes.Domain.Entities;
 using CopaFilmes.Model;
 using CopaFilmes.Pages.Interfaces;
-using CopaFilmes.Services.Interfaces.Intern;
 using CopaFilmes.ViewModels.Base;
 using CopaFilmes.ViewModels.Interfaces;
-using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
+using System.Linq;
 
 namespace CopaFilmes.ViewModels
 {    
@@ -14,6 +12,8 @@ namespace CopaFilmes.ViewModels
     {
         #region Fields                          
         private List<Movie> _moviesWinner;
+        private string _movieChampion;
+        private string _movieViceChampion;
         #endregion
 
         #region Properties
@@ -26,6 +26,27 @@ namespace CopaFilmes.ViewModels
                 RaisedPropertyChanged(() => MoviesWinner);
             }
         }
+
+        public string MovieChampion
+        {
+            get { return _movieChampion; }
+            set
+            {
+                _movieChampion = value;
+                RaisedPropertyChanged(() => MovieChampion);
+            }
+        }
+
+        public string MovieViceChampion
+        {
+            get { return _movieViceChampion; }
+            set
+            {
+                _movieViceChampion = value;
+                RaisedPropertyChanged(() => MovieViceChampion);
+            }
+        }
+
         #endregion
 
         #region Constructor
@@ -36,18 +57,26 @@ namespace CopaFilmes.ViewModels
         #endregion
 
         #region Methods Privates
-      
+        private void LoadResult()
+        {
+            MovieChampion = MoviesWinner.ElementAt(0).Titulo;
+            MovieViceChampion = MoviesWinner.ElementAt(1).Titulo;
+        }
         #endregion
 
         #region Methods Publics 
         public  override void AfterBinding()
         {
-         
+            LoadResult();
         }
+
         #endregion
 
         #region Commands
-       
+
         #endregion
+
+        
     }
 }
+

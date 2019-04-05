@@ -167,16 +167,18 @@ namespace CopaFilmes.ViewModels
             RaisedPropertyChanged(() => DisplayMoviesSelected);
         }
 
-        private async Task LoadResult(List<Movie> moviesSelected)
+        private async Task ProcessResult(List<Movie> moviesSelected)
         {
             if (moviesSelected == null) return;
+            else            
+                moviesWinner = GetResultApi(MoviesSelected);
+                        
+            if(moviesWinner.Status != TaskStatus.Faulted)
+                await PushAsync<IResultPage, IResultViewModel>(x => x.MoviesWinner, moviesWinner);
             else
-            {
-                //moviesWinner = GetResultApi(MoviesSelected);
-            }            
-            await PushAsync<IResultPage, IResultViewModel>(x => x.MoviesWinner, moviesSelected);
+                await DisplayAlert("Ops", "Não foi possível processar resultado da competição.", "Ok");
         }
-        #endregion
+
 
         private async Task<List<Movie>> GetResultApi(List<Movie> moviesSelected)
         {
@@ -185,7 +187,6 @@ namespace CopaFilmes.ViewModels
             {
                 IsBusy = true;                
                 result = await  _resultApi.GetResult(moviesSelected);
-
             }
             catch (Exception ex)
             {
@@ -195,11 +196,14 @@ namespace CopaFilmes.ViewModels
             {
                 IsBusy = false;
             }
+
             return result;
         }
 
+        #endregion
+
         #region Methods Publics 
-        public  override void AfterBinding()
+        public override void AfterBinding()
         {
          
         }
@@ -219,8 +223,7 @@ namespace CopaFilmes.ViewModels
                             await DisplayAlert("Atenção", "Selecione 8 filmes para iniciar a competição.", "Ok");
                             return;
                         }
-
-                        await LoadResult(MoviesSelected);
+                        await ProcessResult(MoviesSelected);
                     }
                     catch (Exception ex)
                     {
