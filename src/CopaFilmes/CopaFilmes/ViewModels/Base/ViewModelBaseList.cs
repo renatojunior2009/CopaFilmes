@@ -16,7 +16,7 @@ namespace CopaFilmes.ViewModels.Base
     {
 
         #region Fields
-        private bool _isBusy;
+        private bool _isBusy;        
         #endregion
 
         #region Properties
@@ -31,6 +31,7 @@ namespace CopaFilmes.ViewModels.Base
                 RaisedPropertyChanged(() => IsBusy);
             }
         }
+       
         #endregion
 
         #region Constructor

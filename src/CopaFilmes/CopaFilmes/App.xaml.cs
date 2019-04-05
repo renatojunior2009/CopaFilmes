@@ -20,7 +20,7 @@ namespace CopaFilmes
             AutoMapperConfig.RegisterMappings();
             ModuleInitializer.Initialize();
 
-            MainPage = new MoviePage();
+            MainPage = new NavigationPage(new  MoviePage());
         }
 
         protected override void OnStart()

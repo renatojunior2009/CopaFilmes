@@ -2,22 +2,45 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"             
              x:Class="CopaFilmes.Pages.MoviePage">
-    <ListView 
-        x:Name="Movies"
-        ItemsSource="{Binding Items}" 
-        HasUnevenRows="True" 
-        SeparatorVisibility="None">        
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <ViewCell>
-                    <ViewCell.View>
-                        <StackLayout Padding="5" VerticalOptions="Center">
-                            <Label Text="{Binding Titulo, Mode=TwoWay}"/>
-                            <Label Text="{Binding Ano, Mode=TwoWay}" FontSize="Micro"/>
-                        </StackLayout>
-                    </ViewCell.View>
-                </ViewCell>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Gerar" Command ="{Binding GerarCommand}" IsDestructive="{Binding IsGenerateResult}"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout HorizontalOptions="FillAndExpand"
+                         VerticalOptions="FillAndExpand"
+                         AbsoluteLayout.LayoutBounds="0, 0, 1.0, 1.0" 
+                         AbsoluteLayout.LayoutFlags="All"
+                         Margin="20">
+                <Label Text="{Binding DisplayMoviesSelected}" TextColor="Red"/>
+                <ListView x:Name="Movies"
+                          ItemsSource="{Binding Items,Mode=TwoWay}"                                              
+                          SelectedItem="{Binding MovieSelected, Mode=TwoWay}"
+                          HasUnevenRows="True" 
+                          HorizontalOptions="FillAndExpand"
+                          VerticalOptions="FillAndExpand"
+                          RowHeight="60">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="5" VerticalOptions="Center">
+                                    <Label Text="{Binding Titulo, Mode=TwoWay}"/>
+                                    <Label Text="{Binding Ano, Mode=TwoWay}" FontSize="Micro"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <ContentView BackgroundColor="#222222" Opacity="0.5"
+                         AbsoluteLayout.LayoutFlags="All"
+                         AbsoluteLayout.LayoutBounds="0,0,1,1"
+                         IsVisible="{Binding IsBusy, Mode=TwoWay}">
+            </ContentView>
+            <ActivityIndicator AbsoluteLayout.LayoutFlags="PositionProportional"
+                               AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1"
+                               IsRunning="{Binding IsBusy, Mode=TwoWay}"
+                               IsVisible="{Binding IsBusy, Mode=TwoWay}" />
+        </AbsoluteLayout>
+    </ContentPage.Content>
 </ContentPage>
