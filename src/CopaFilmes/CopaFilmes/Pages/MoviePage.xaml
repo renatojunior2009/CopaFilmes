@@ -23,6 +23,9 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
+                                <ViewCell.ContextActions>
+                                    <MenuItem Text="Remover" Command="{Binding RemoveMovieCommand, Source={x:Reference Name=Movies}}" CommandParameter="{Binding .}"/>
+                                </ViewCell.ContextActions>
                                 <StackLayout Padding="5" VerticalOptions="Center">
                                     <Label Text="{Binding Titulo, Mode=TwoWay}"/>
                                     <Label Text="{Binding Ano, Mode=TwoWay}" FontSize="Micro"/>

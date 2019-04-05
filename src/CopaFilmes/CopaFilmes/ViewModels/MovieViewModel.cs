@@ -27,6 +27,7 @@ namespace CopaFilmes.ViewModels
         private bool _isGenerateResult;
         private string _displayMoviesSelected;
         private ICommand _gerarCommand;
+        private ICommand _removeMovieCommand;
         private List<Movie> moviesWinner;
         #endregion
 
@@ -97,7 +98,6 @@ namespace CopaFilmes.ViewModels
                 RaisedPropertyChanged(() => IsGenerateResult);
             }
         }
-
         #endregion
 
         #region Constructor
@@ -226,7 +226,32 @@ namespace CopaFilmes.ViewModels
                     }
                 }));
             }
-        } 
+        }
+
+        public ICommand RemoveMovieCommand
+        {
+            get
+            {
+                return _removeMovieCommand ?? (_removeMovieCommand = new Command(async () =>
+                {
+                    try
+                    {
+                        var movie = MoviesSelected.Where(m => m.Id == _movieSelected.Id).FirstOrDefault();
+                        if (movie != null)                       
+                            await DisplayAlert("Atenção", $"Excluir o filme {_movieSelected.Titulo} da lista?", "Sim","Não").ContinueWith((arg) => { if (arg.Result)
+                            {
+                                MoviesSelected.Remove(movie);
+                                UpdateNumberMoviesSelected();
+                            }});                                            
+                    }
+                    catch (Exception ex)
+                    {
+                        await DisplayAlert("Ops", ex.Message, "Ok");
+                    }
+                }));
+            }
+        }
+
         #endregion
     }
 }
