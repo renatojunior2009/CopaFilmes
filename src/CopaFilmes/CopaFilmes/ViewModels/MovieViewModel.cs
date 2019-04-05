@@ -18,14 +18,16 @@ namespace CopaFilmes.ViewModels
     public class MovieViewModel : ViewModelBaseList<IMoviePage, MovieModel>, IMovieViewModel
     {
         #region Fields          
+        private readonly IMoviesApi _moviesApi;
+        private readonly IResultCompetitionApi _resultApi;
         private List<Movie> _moviesSelected;
         private int _getCountMoviesSelected;
-        private int _getTotalMovies;
-        private readonly IMoviesApi _moviesApi;
+        private int _getTotalMovies;        
         private MovieModel _movieSelected;
         private bool _isGenerateResult;
         private string _displayMoviesSelected;
         private ICommand _gerarCommand;
+        private Task<List<Movie>> moviesWinner;
         #endregion
 
         #region Properties         
@@ -99,11 +101,12 @@ namespace CopaFilmes.ViewModels
         #endregion
 
         #region Constructor
-        public MovieViewModel(IMoviesApi moviesApi)
+        public MovieViewModel(IMoviesApi moviesApi, IResultCompetitionApi resultCompetitionApi)
         {
             GetTotalMovies = 0;
             GetCountMoviesSelected = 0;
-            _moviesApi = moviesApi;            
+            _moviesApi = moviesApi;
+            _resultApi = resultCompetitionApi;
             GetMoviesApi();
             MoviesSelected = new List<Movie>();           
         }
@@ -163,7 +166,37 @@ namespace CopaFilmes.ViewModels
             RaisedPropertyChanged(() => GetCountMoviesSelected);
             RaisedPropertyChanged(() => DisplayMoviesSelected);
         }
+
+        private async Task LoadResult(List<Movie> moviesSelected)
+        {
+            if (moviesSelected == null) return;
+            else
+            {
+                //moviesWinner = GetResultApi(MoviesSelected);
+            }            
+            await PushAsync<IResultPage, IResultViewModel>(x => x.MoviesWinner, moviesSelected);
+        }
         #endregion
+
+        private async Task<List<Movie>> GetResultApi(List<Movie> moviesSelected)
+        {
+            List<Movie> result;
+            try
+            {
+                IsBusy = true;                
+                result = await  _resultApi.GetResult(moviesSelected);
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+            return result;
+        }
 
         #region Methods Publics 
         public  override void AfterBinding()
@@ -175,10 +208,9 @@ namespace CopaFilmes.ViewModels
         #region Commands
         public ICommand GerarCommand
         {
-
             get
             {
-                return _gerarCommand ?? (_gerarCommand = new Command<MovieModel>(async (m) =>
+                return _gerarCommand ?? (_gerarCommand = new Command(async () =>
                 {
                     try
                     {
@@ -187,8 +219,8 @@ namespace CopaFilmes.ViewModels
                             await DisplayAlert("Atenção", "Selecione 8 filmes para iniciar a competição.", "Ok");
                             return;
                         }
-                        //Chamo a pagina de resultados
-                        //await PushAsync<IResultPage, IResultViewModel>();
+
+                        await LoadResult(MoviesSelected);
                     }
                     catch (Exception ex)
                     {

@@ -4,9 +4,48 @@
              x:Class="CopaFilmes.Pages.ResultPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30"></ColumnDefinition>
+                    <ColumnDefinition Width="70"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label 
+                    Text="1º" 
+                    VerticalTextAlignment="Center"
+                    HorizontalTextAlignment="Center"
+                    FontSize="Large"
+                    FontAttributes="Bold"/>
+                <Label Text="{Binding MovieChampion, Mode=TwoWay}" 
+                    Grid.Column="2"
+                    VerticalTextAlignment="Center"
+                    HorizontalTextAlignment="Start"
+                    FontAttributes="Bold"
+                    LineBreakMode="WordWrap"/>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30"></ColumnDefinition>
+                    <ColumnDefinition Width="70"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label 
+                    Text="2º" 
+                    VerticalTextAlignment="Center"
+                    HorizontalTextAlignment="Center"
+                    FontSize="Large"
+                    FontAttributes="Bold"/>
+                <Label Text="{Binding MovieViceChampion, Mode=TwoWay}" 
+                    Grid.Column="2"
+                    VerticalTextAlignment="Center"
+                    HorizontalTextAlignment="Start"
+                    FontAttributes="Bold"
+                    LineBreakMode="WordWrap"/>
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

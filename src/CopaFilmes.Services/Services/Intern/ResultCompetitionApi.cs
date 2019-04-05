@@ -16,10 +16,8 @@ namespace CopaFilmes.Services.Intern
         public async Task<List<Movie>> GetResult([Body] List<Movie> movies)
         {
             var api = RestService.For<IResultCompetitionApi>(BaseUrlApi);
-            //var moviesResult = await api.GetResult();
-            //return moviesResult;
-
-            return null;
+            var moviesResult = await api.GetResult(movies);
+            return moviesResult;            
         }
         #endregion
     }
