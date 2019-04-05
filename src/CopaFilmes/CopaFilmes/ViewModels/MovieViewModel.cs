@@ -27,7 +27,7 @@ namespace CopaFilmes.ViewModels
         private bool _isGenerateResult;
         private string _displayMoviesSelected;
         private ICommand _gerarCommand;
-        private Task<List<Movie>> moviesWinner;
+        private List<Movie> moviesWinner;
         #endregion
 
         #region Properties         
@@ -171,9 +171,9 @@ namespace CopaFilmes.ViewModels
         {
             if (moviesSelected == null) return;
             else            
-                moviesWinner = GetResultApi(MoviesSelected);
+                moviesWinner = await GetResultApi(MoviesSelected);
                         
-            if(moviesWinner.Status != TaskStatus.Faulted)
+            if(moviesWinner != null)
                 await PushAsync<IResultPage, IResultViewModel>(x => x.MoviesWinner, moviesWinner);
             else
                 await DisplayAlert("Ops", "Não foi possível processar resultado da competição.", "Ok");
@@ -184,19 +184,14 @@ namespace CopaFilmes.ViewModels
         {
             List<Movie> result;
             try
-            {
-                IsBusy = true;                
+            {                  
                 result = await  _resultApi.GetResult(moviesSelected);
             }
             catch (Exception ex)
             {
-                throw;
+                throw new Exception(ex.Message);
             }
-            finally
-            {
-                IsBusy = false;
-            }
-
+            
             return result;
         }
 

@@ -9,7 +9,7 @@ namespace CopaFilmes.Services.Intern
     public class ResultCompetitionApi : IResultCompetitionApi
     {
         #region Fields
-        private readonly string BaseUrlApi = "http://192.168.254.86:60552/api";
+        private readonly string BaseUrlApi = "http://192.168.254.86:45455/api";
         #endregion
 
         #region Methods Publics 
